@@ -18,3 +18,6 @@ FLUSH PRIVILEGES;
 git config --global user.name "Your Name"
 git config --global user.email "your-email@example.com"
 test
+
+#ソースをもらう
+ git pull origin main
