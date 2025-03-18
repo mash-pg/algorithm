@@ -13,3 +13,7 @@ GRANT CREATE ON *.* TO 'user'@'%';
 CREATE USER 'root'@'%' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
+
+#github設定 
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
