@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "*.sqlbook": "sql",
+        "*.ndjson": "jsonl",
+        "*.dbclient-js": "javascript",
+        "any": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "expected": "cpp",
+        "optional": "cpp",
+        "variant": "cpp",
+        "string": "cpp",
+        "ostream": "cpp"
+    }
+}

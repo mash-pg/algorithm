@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+#include "/home/mash/projects/algorithm/include/template.hpp";
 
 int factorialFn(int n){
     /*
