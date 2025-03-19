@@ -26,5 +26,3 @@ test
  github設定（ソース管理）
  docker設定（docker起動で環境汚し対策）
  winscp設定（仮想環境とのフォルダ移動）
-
- test
