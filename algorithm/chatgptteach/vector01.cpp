@@ -1,4 +1,4 @@
-#include "/home/mash/projects/algorithm/include/template.hpp";
+#include "/home/mash/projects/algorithm/include/template.hpp"
 
 int main(){
     vector<int> v = {1,2,3};
