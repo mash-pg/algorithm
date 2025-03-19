@@ -67,3 +67,13 @@ using vvvmint = vv<vmint>;
 auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 
 #endif // MY_TEMPLATE_HPP
+
+
+int main(){
+    ll a,b;
+    ll r;
+    cin >> a >> b;
+    r = double(a + b)/2 + 0.5;
+
+    cout << r << endl;
+}

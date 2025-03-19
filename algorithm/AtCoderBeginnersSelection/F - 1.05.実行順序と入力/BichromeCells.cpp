@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "/home/mash/projects/algorithm/include/template.hpp"
 
 // 切り上げは、＋１すればよい
 

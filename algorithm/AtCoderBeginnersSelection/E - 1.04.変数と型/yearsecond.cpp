@@ -67,3 +67,16 @@ using vvvmint = vv<vmint>;
 auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 
 #endif // MY_TEMPLATE_HPP
+
+
+int main(){
+
+  // 一年の秒数
+  int seconds = 365 * 24 * 60 * 60;
+ 
+  // 以下のコメント/* */を消して追記する
+  cout << seconds << endl;
+  cout << 2 * seconds << endl;
+  cout << 5 * seconds << endl;
+  cout << 10 * seconds << endl;
+}

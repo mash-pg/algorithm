@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include "/home/mash/projects/algorithm/include/template.hpp"
 
 int main(void){
     int a;
