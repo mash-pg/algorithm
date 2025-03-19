@@ -21,3 +21,8 @@ test
 
 #ソースをもらう
  git pull origin main
+
+ #NOTIONで環境構築の設定管理を実施する
+ github設定（ソース管理）
+ docker設定（docker起動で環境汚し対策）
+ winscp設定（仮想環境とのフォルダ移動）
