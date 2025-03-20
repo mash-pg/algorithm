@@ -80,6 +80,5 @@ int main(){
     if( left  > right) cout << "Left" << endl;
     else if(left < right) cout << "Right" << endl;
     else cout << "Balanced" << endl;
-
-
+    return 0;
 }

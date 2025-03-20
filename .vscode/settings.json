@@ -17,5 +17,6 @@
         "ostream": "cpp",
         "iomanip": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/mash/project/algorithm/ac-library/test/benchmark"
 }
