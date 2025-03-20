@@ -70,11 +70,8 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 
 
 int main(){
-    ll n;
     ll a;
-    cin >> n >> a;
-    //500で割った余り
-    ll b = n % 500;
-    //余りの数が1円の枚数より上の場合はNO
-    if(a >= b) YN;
+    ll b;
+    cin >> a >> b;
+    if((a * b) % 2 == 0 ) cout << "Even" << endl;  else cout << "Odd" << endl;
 }

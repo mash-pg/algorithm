@@ -71,10 +71,14 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 
 int main(){
     ll n;
-    ll a;
-    cin >> n >> a;
-    //500で割った余り
-    ll b = n % 500;
-    //余りの数が1円の枚数より上の場合はNO
-    if(a >= b) YN;
+    cin >> n;
+    ll n1 = n/1000;
+    ll n2 = (n/100)%10;
+    ll n3 = (n/10)%10;
+    ll n4 = n % 10;
+    
+    if(n1 == n2 && n2 == n3) YES;
+    else if(n2 == n3 && n3 == n4  ) YES;
+    else NO;
+    return 0;
 }

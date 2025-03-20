@@ -70,11 +70,34 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 
 
 int main(){
-    ll n;
-    ll a;
-    cin >> n >> a;
-    //500で割った余り
-    ll b = n % 500;
-    //余りの数が1円の枚数より上の場合はNO
-    if(a >= b) YN;
+  // 変数a,b,cにtrueまたはfalseを代入してAtCoderと出力されるようにする。
+  bool a = true;// true または false
+  bool b = false;// true または false
+  bool c = true;// true または false
+  //ここから先は変更しないこと
+  if(a) {
+    cout << "At";
+  }
+  else {
+    cout << "Yo";
+  }
+ 
+  if (!a && b) {
+    cout << "Bo";
+  }
+  else if (!b || c) {
+    cout << "Co";
+  }
+ 
+  if (a && b && c) {
+    cout << "foo!";
+  }
+  else if (true && false) {
+    cout << "yeah!";
+  }
+  else if (!a || c) {
+    cout << "der";
+  }
+ 
+  cout << endl;
 }

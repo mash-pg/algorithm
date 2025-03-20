@@ -70,11 +70,16 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 
 
 int main(){
-    ll n;
     ll a;
-    cin >> n >> a;
-    //500で割った余り
-    ll b = n % 500;
-    //余りの数が1円の枚数より上の場合はNO
-    if(a >= b) YN;
+    ll b;
+    ll c;
+    ll d;
+    cin >> a >> b >> c >> d;
+    ll left = a + b;
+    ll right = c + d;
+    if( left  > right) cout << "Left" << endl;
+    else if(left < right) cout << "Right" << endl;
+    else cout << "Balanced" << endl;
+
+
 }
