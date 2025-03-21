@@ -86,7 +86,16 @@
         "thread": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "barrier": "cpp",
+        "source_location": "cpp",
+        "format": "cpp",
+        "latch": "cpp",
+        "semaphore": "cpp",
+        "spanstream": "cpp",
+        "stacktrace": "cpp",
+        "stdfloat": "cpp",
+        "syncstream": "cpp"
     },
     "cmake.sourceDirectory": "/home/mash/project/algorithm/ac-library/test/benchmark"
 }
