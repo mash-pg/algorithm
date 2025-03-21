@@ -12,7 +12,7 @@
 #define _GLIBCXX_DEBUG // デバッグ用（オンラインジャッジでは無効）
 #endif
 
-// マクロ定義（セミコロン削除・安全な形式）
+// マクロ定義
 #define pb push_back
 #define eb emplace_back
 #define em emplace
