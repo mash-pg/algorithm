@@ -21,7 +21,10 @@
 #define NO do { cout << "No" << endl; } while (0)
 #define YN { cout << "Yes" << endl; } else { cout << "No" << endl; }
 #define dame do { cout << -1 << endl; } while (0)
-
+//改行処理
+#define ce cout << endl;
+//Map追加
+#define myM std::unordered_map<std::string, int> myMap
 // 名前空間
 namespace multip = boost::multiprecision;
 using multip::cpp_int;
@@ -47,6 +50,11 @@ using vl = vc<ll>;
 using vvl = vv<ll>;
 using vvvl = vv<vl>;
 using vvvvl = vv<vvl>;
+
+using vi = vc<int>;
+using vvi = vv<int>;
+using vvvi = vv<vi>;
+using vvvvi = vv<vvi>;
 
 using vs = vc<string>;
 using vvs = vv<string>;
