@@ -27,6 +27,7 @@ ll secondOnmax(vl &vec){
 }
 int secondOnmin(vl &vec){
     if (vec.size() < 2) return -1;
+    //初期値を定数の最大にする
     ll min1 = LLONG_MAX, min2 = LLONG_MAX;
     for (ll num : vec) {
         if (num < min1) {
