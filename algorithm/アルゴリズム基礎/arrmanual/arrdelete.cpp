@@ -10,7 +10,7 @@ void insertElement(ll arr[],ll &size,ll pos){
 
 int main(){
     ll arr[] = {10, 20, 30, 40, 50,20};
-    ll size = sizeof(arr)/sizeof(arr[0]);
+    ll size = arrn(arr);
     ll pos = 2;
     //sort(arr,arr + size);
 

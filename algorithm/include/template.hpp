@@ -76,3 +76,5 @@ using vvvmint = vv<vmint>;
 auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 
 #endif // MY_TEMPLATE_HPP
+
+#define arrn(arr) (sizeof(arr) / sizeof(arr[0]))
