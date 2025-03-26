@@ -1,5 +1,7 @@
+//subpc
 #include "/home/mash/projects/algorithm/include/template.hpp"
-
+//mainpc
+//#include "/home/mash/project/algorithm/algorithm/include/template.hpp"
 int main() {
     std::string x;
 
