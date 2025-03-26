@@ -1,5 +1,4 @@
-#include <iostream>
-#include <string>
+#include "/home/mash/projects/algorithm/include/template.hpp"
 
 int main() {
     std::string x;
@@ -12,6 +11,7 @@ int main() {
         }
         std::cout << sum << std::endl;
     }
+    cout << endl;
 
     return 0;
 }
