@@ -5,6 +5,7 @@
 #include <vector>
 #include <queue>
 #include <set>
+#include <algorithm>  // これをインクルード！
 // 多倍長整数
 #include <boost/multiprecision/cpp_int.hpp>
 #include <atcoder/all>
