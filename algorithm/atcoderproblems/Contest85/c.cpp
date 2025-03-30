@@ -7,10 +7,6 @@
 // 残りの z は N - x - y
 // そのときの合計金額が Y になるかを調べる。
 
-#include <bits/stdc++.h>
-using namespace std;
-using ll = long long;
-
 int main(){
     ll N = 0;//枚数
     ll Y = 0;//金額
