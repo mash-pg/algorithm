@@ -60,6 +60,11 @@ using vvvvi = vv<vvi>;
 
 using vs = vc<string>;
 using vvs = vv<string>;
+using vvvs = vv<vs>;
+
+using vchar = vc<char>;
+using vvchar = vv<char>;
+using vvvchar = vv<vchar>;
 
 using vld = vc<ld>;
 using vvld = vv<ld>;
