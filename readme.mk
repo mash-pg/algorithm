@@ -21,6 +21,7 @@ test
 
 #ソースをもらう
  git pull origin main
+git pull --rebase origin main
 
  #NOTIONで環境構築の設定管理を実施する
  github設定（ソース管理）
