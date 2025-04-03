@@ -12,7 +12,7 @@ int main(){
 
   //処理
   for(ll i = 0; i < M; i++){
-    A.at(i)--; B.at(i)--;//インデックスをそろえる必要が
+    A.at(i)--; B.at(i)--;//インデックスをそろえる必要が 0,1,2なので
     data.at(A.at(i)).at(B.at(i)) ='o';
     data.at(B.at(i)).at(A.at(i)) ='x';
   }
