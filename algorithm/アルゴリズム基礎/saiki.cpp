@@ -10,7 +10,11 @@ int main(){
         for(ll j = n; j >= i+1; j--){
             if(list[j - 1] > list[j]){
                 swap(list[j - 1],list[j]);
+                for(ll k = 0; k < n;k++) cout << " " << list[k]; 
+                cout << "  Yes" << endl;
                 cnt++;
+            }else{
+                cout << "No" << endl;
             }
         }
     }
