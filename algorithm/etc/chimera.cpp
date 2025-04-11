@@ -1,4 +1,5 @@
-#include "/home/mash/projects/algorithm/include/template.hpp"
+//#include "/home/mash/projects/algorithm/include/template.hpp"
+#include "/home/mash/project/algorithm/algorithm/include/template.hpp"
 
 
 // セグメント木
