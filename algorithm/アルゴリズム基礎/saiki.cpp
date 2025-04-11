@@ -1,7 +1,7 @@
 #include "/home/mash/projects/algorithm/include/template.hpp"
 
 int main(){
-    //ダミーを作成する必要があるため、0を追加
+    //ダミーデータ「0」を作成する必要があるため、0を追加
     //1～6のため下記データになる。
     vl list = {0,21,5,53,71,3,17};
     ll n = list.size() -1;
