@@ -5,12 +5,28 @@
 
 -- 実務でよくある「リレーション」をSQLで扱えるようにする
 
+use testdb;
+
 CREATE TABLE orders (
   id INT,
   user_id INT,
   product VARCHAR(50),
   quantity INT
 );
+
+CREATE TABLE users (
+  id INT,
+  name VARCHAR(50),
+  age INT,
+  city VARCHAR(50)
+);
+
+INSERT INTO users (id, name, age, city) VALUES
+(1, '太郎', 25, 'Tokyo'),
+(2, 'Hanako', 32, 'Osaka'),
+(3, 'Ken', 19, 'Nagoya'),
+(4, 'Yuki', 28, 'Tokyo');
+
 
 INSERT INTO users (id, name, age, city) VALUES
 (1, 'Taro', 25, 'Tokyo'),
