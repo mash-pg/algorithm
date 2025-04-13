@@ -96,7 +96,8 @@
         "stacktrace": "cpp",
         "stdfloat": "cpp",
         "syncstream": "cpp",
-        "testcode2": "cpp"
+        "testcode2": "cpp",
+        "queue": "cpp"
     },
     "cmake.sourceDirectory": "/home/mash/project/algorithm/ac-library/test/benchmark"
 }
