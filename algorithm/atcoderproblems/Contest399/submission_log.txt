@@ -2,7 +2,7 @@
 [INFO] read history from: /home/mash/.cache/online-judge-tools/download-history.jsonl
 [INFO] found urls in history:
 https://atcoder.jp/contests/abc399/tasks/abc399_b
-[INFO] code (637 byte):
+[INFO] code (627 byte):
 #include_<iostream>
 #include_<vector>
 using_namespace_std;
@@ -13,15 +13,15 @@ ____int_p;
 ____vector<int>_a(n);
 ____//サンプル
 ____//4
-... (15 lines) ...
+... (13 lines) ...
+____________if_(a.at(j)_>_a.at(i))
+____________{
 ________________rank++;
 ____________}
 ________}
 ________//rankを出力
 ________cout_<<_rank_<<_endl;
 ____}
-________(trailing whitespace)
-
 ____return_0;
 }(no trailing newline)
 [INFO] load cookie from: /home/mash/.local/share/online-judge-tools/cookie.jar
@@ -40,5 +40,5 @@ ____return_0;
 [NETWORK] POST: https://atcoder.jp/contests/abc399/submit
 [NETWORK] redirected to: https://atcoder.jp/contests/abc399/submissions/me
 [NETWORK] 200 OK
-[SUCCESS] result: https://atcoder.jp/contests/abc399/submissions/64930338
+[SUCCESS] result: https://atcoder.jp/contests/abc399/submissions/64931656
 [INFO] save cookie to: /home/mash/.local/share/online-judge-tools/cookie.jar
