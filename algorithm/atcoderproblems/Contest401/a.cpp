@@ -8,7 +8,14 @@
 
 using namespace std;
 int main(){
-    int s;
-    cin >> s;
-    ( 200 <= s && s <= 299) ? cout << "Success" << endl : cout << "Failure"  << endl;
+    int a;
+    cin >> a;
+    int N = 400;
+    int ans = N % a;
+    if(ans == 0){
+        cout << N / a << endl;
+    }else{
+        cout << -1 << endl;
+    }
+    return 0;
 }
