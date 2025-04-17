@@ -1,0 +1,56 @@
+[INFO] online-judge-tools 11.5.1 (+ online-judge-api-client 10.10.1)
+[INFO] read history from: /home/mash/.cache/online-judge-tools/download-history.jsonl
+[INFO] found urls in history:
+https://atcoder.jp/contests/abc396/tasks/abc396_b
+[INFO] code (431 byte):
+#include_<iostream>
+#include_<vector>
+#include_<string>
+
+using_namespace_std;
+
+int_main()_{
+____int_Q;
+____cin_>>_Q;
+
+____vector<int>_stack(100,_0);_(trailing whitespace)
+____string_op;
+____int_x;
+
+____while_(Q--)_{
+________cin_>>_op;
+________if_(op_==_"1")_{
+____________cin_>>_x;
+____________stack.push_back(x);
+________}_else_if_(op_==_"2")_{
+____________cout_<<_stack.back()_<<_endl;
+____________stack.pop_back();
+________}
+____}
+
+____return_0;
+}
+
+
+[INFO] load cookie from: /home/mash/.local/share/online-judge-tools/cookie.jar
+[NETWORK] GET: https://atcoder.jp/contests/agc001/submit
+[NETWORK] 200 OK
+[INFO] You are logged in.
+[NETWORK] GET: https://atcoder.jp/contests/abc396/tasks/abc396_b
+[NETWORK] 200 OK
+[INFO] both GCC and Clang are available for C++ compiler
+[INFO] use: GCC
+[INFO] chosen language: 5028 (C++ 23 (gcc 12.2))
+Traceback (most recent call last):
+  File "/home/mash/projects/algorithm/atcoderproblems/venv-atcoder/bin/oj", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mash/projects/algorithm/atcoderproblems/venv-atcoder/lib/python3.12/site-packages/onlinejudge_command/main.py", line 101, in main
+    sys.exit(run_program(parsed, parser=parser))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mash/projects/algorithm/atcoderproblems/venv-atcoder/lib/python3.12/site-packages/onlinejudge_command/main.py", line 67, in run_program
+    if not subcommand_submit.run(args):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mash/projects/algorithm/atcoderproblems/venv-atcoder/lib/python3.12/site-packages/onlinejudge_command/subcommand/submit.py", line 169, in run
+    time.sleep(args.wait / 2)
+KeyboardInterrupt
