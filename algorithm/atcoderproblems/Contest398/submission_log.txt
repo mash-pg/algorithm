@@ -1,44 +1,45 @@
 [INFO] online-judge-tools 11.5.1 (+ online-judge-api-client 10.10.1)
 [INFO] read history from: /home/mash/.cache/online-judge-tools/download-history.jsonl
 [INFO] found urls in history:
-https://atcoder.jp/contests/abc045/tasks/arc061_a
-[INFO] code (859 byte):
+https://atcoder.jp/contests/abc398/tasks/abc398_a
+[INFO] code (413 byte):
 #include_<bits/stdc++.h>
 using_namespace_std;
 
-int_main()_{
+int_main(){
+____int_n;
+____cin_>>_n;
 ____string_s;
-____cin_>>_s;
-____vector<int>_digits;
-____//_文字列を数字に変換
-____for_(char_c_:_s)_{
-________digits.push_back(c_-_'0');__//_'1'_→_49,_'0'_→_48_→_数字に変換
-... (12 lines) ...
-____________}
-________}
-________sum_+=_current_num_;_//_最後の残りも加算
-________total_sum_+=_sum;
-________cnt++;
+____for(int_i_=_0;_i_<_n;_i++){
+________s_+=_"-";
 ____}
-____//cout_<<_cnt_<<_endl;
-____cout_<<_total_sum_<<_endl;
+____//文字列の真ん中を取得する
+____int_mid_=_n_/_2;
+____if(n_%_2_==_0){
+________s[mid_-_1]_=_'=';
+________s[mid]_=_'=';
+____}else{
+________s[mid]_=_'=';
+____}
+____cout_<<_s_<<_endl;
+____(trailing whitespace)
 ____return_0;
-}
+}_//_←_ここが足りてなかった！！
 
 [INFO] load cookie from: /home/mash/.local/share/online-judge-tools/cookie.jar
 [NETWORK] GET: https://atcoder.jp/contests/agc001/submit
 [NETWORK] 200 OK
 [INFO] You are logged in.
-[NETWORK] GET: https://atcoder.jp/contests/abc045/tasks/arc061_a
+[NETWORK] GET: https://atcoder.jp/contests/abc398/tasks/abc398_a
 [NETWORK] 200 OK
 [INFO] both GCC and Clang are available for C++ compiler
 [INFO] use: GCC
 [INFO] chosen language: 5028 (C++ 23 (gcc 12.2))
-[NETWORK] GET: https://atcoder.jp/contests/abc045/tasks/arc061_a
+[NETWORK] GET: https://atcoder.jp/contests/abc398/tasks/abc398_a
 [NETWORK] 200 OK
-[NETWORK] GET: https://atcoder.jp/contests/abc045/submit
+[NETWORK] GET: https://atcoder.jp/contests/abc398/submit
 [NETWORK] 200 OK
-[NETWORK] POST: https://atcoder.jp/contests/abc045/submit
+[NETWORK] POST: https://atcoder.jp/contests/abc398/submit
 [NETWORK] 200 OK
 [WARNING] AtCoder says: × Error.
 [FAILURE] submission failed
