@@ -1,19 +1,21 @@
 #include "/home/mash/projects/algorithm/include/template.hpp"
 
+int fibo(int n){
+    cout << "fibo(" << n << ")を呼び出しました" << endl;
+    //ベースケース
+    if(n == 0) return  0;
+    else if(n == 1) return  1;
+
+    int result = fibo(n - 1) + fibo(n - 2);
+    cout << n << " 項目 = " << result << endl;
+    
+    return result;
+}
+
 int main(){
     int n;
     cin >> n;
-    vector<long long> F(n);
+    fibo(n);
 
-    F[0] = 0;
-    F[1] = 1;
-    int result = 0;
-    for(int n = 2; n < F.size(); n++){
-        F[n] = F[n - 1] + F[n - 2];
-        cout << n << " 項目 = " << F[n] << endl;
-        result = F[n];
-    }
-    cout << "-------------------------" << endl;
-    cout << result << endl;
     return 0;
 }
