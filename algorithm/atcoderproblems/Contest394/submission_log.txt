@@ -1,44 +1,49 @@
 [INFO] online-judge-tools 11.5.1 (+ online-judge-api-client 10.10.1)
 [INFO] read history from: /home/mash/.cache/online-judge-tools/download-history.jsonl
 [INFO] found urls in history:
-https://atcoder.jp/contests/abc394/tasks/abc394_a
-[INFO] code (344 byte):
+https://atcoder.jp/contests/abc394/tasks/abc394_b
+[INFO] code (396 byte):
 #include_<bits/stdc++.h>
 using_namespace_std;
 
 int_main(){
-____string_s;
-____cin_>>_s;
-____vector<string>_v;
-____for_(size_t_i_=_0;_i_<_s.length();_i++)
-____{
-________if(s[i]_==_'2'){
-____________v.push_back("2");
-________}
+____int_n;
+____cin_>>_n;
+____vector<string>_v(n);
+____for(int_i_=_0;_i_<_n;_i++){
+________cin_>>_v[i];
 ____}
-____for_(size_t_i_=_0;_i_<_v.size();_i++)
+
+____sort(v.begin(),_v.end(),[](const_string_&a,_const_string_&b)_{
+________return_a.size()_<_b.size();
+____});
+
+____for_(int_i_=_0;_i_<_int(v.size());_i++)
 ____{
 ________cout_<<_v[i];
-____}
+____}____(trailing whitespace)
 ____cout_<<_endl;
-____(trailing whitespace)
 ____return_0;
 }(no trailing newline)
 [INFO] load cookie from: /home/mash/.local/share/online-judge-tools/cookie.jar
 [NETWORK] GET: https://atcoder.jp/contests/agc001/submit
 [NETWORK] 200 OK
 [INFO] You are logged in.
-[NETWORK] GET: https://atcoder.jp/contests/abc394/tasks/abc394_a
+[NETWORK] GET: https://atcoder.jp/contests/abc394/tasks/abc394_b
 [NETWORK] 200 OK
 [INFO] both GCC and Clang are available for C++ compiler
 [INFO] use: GCC
 [INFO] chosen language: 5028 (C++ 23 (gcc 12.2))
-[NETWORK] GET: https://atcoder.jp/contests/abc394/tasks/abc394_a
-[NETWORK] 200 OK
-[NETWORK] GET: https://atcoder.jp/contests/abc394/submit
-[NETWORK] 200 OK
-[NETWORK] POST: https://atcoder.jp/contests/abc394/submit
-[NETWORK] 200 OK
-[WARNING] AtCoder says: × Error.
-[FAILURE] submission failed
-[INFO] save cookie to: /home/mash/.local/share/online-judge-tools/cookie.jar
+Traceback (most recent call last):
+  File "/home/mash/projects/algorithm/atcoderproblems/venv-atcoder/bin/oj", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mash/projects/algorithm/atcoderproblems/venv-atcoder/lib/python3.12/site-packages/onlinejudge_command/main.py", line 101, in main
+    sys.exit(run_program(parsed, parser=parser))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mash/projects/algorithm/atcoderproblems/venv-atcoder/lib/python3.12/site-packages/onlinejudge_command/main.py", line 67, in run_program
+    if not subcommand_submit.run(args):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mash/projects/algorithm/atcoderproblems/venv-atcoder/lib/python3.12/site-packages/onlinejudge_command/subcommand/submit.py", line 169, in run
+    time.sleep(args.wait / 2)
+KeyboardInterrupt

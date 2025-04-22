@@ -11,11 +11,10 @@ int main(){
             v.push_back("2");
         }
     }
-    for (size_t i = 0; i < v.size(); i++)
+    for (int i = 0; i < v.size(); i++)
     {
         cout << v[i];
     }
-    cout << endl;
     
     return 0;
 }
