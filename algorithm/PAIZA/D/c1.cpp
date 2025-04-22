@@ -6,9 +6,9 @@ using namespace std;
 
 int main(){
     long long n = 100;
-    long long m = 10^7;
+    long long m = 1e7;
     cin >> n >> m;
-    long long sum = 10^7;
+    long long sum = 1e7;
     vector<int> v(n);
     for (int i = 0; i < v.size(); i++)
     {
