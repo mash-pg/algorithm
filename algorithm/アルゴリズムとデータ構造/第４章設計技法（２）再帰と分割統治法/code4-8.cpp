@@ -15,7 +15,7 @@ long long fibo(int n){
 }
 
 int main(){
-    //メモ化用配列をー１で初期化する。
+    //メモ化用配列をー１で初期化する。memo = {-1, -1, -1, ..., -1}  ← 要素50個
     memo.assign(50,-1);
 
     cout << fibo(49);
