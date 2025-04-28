@@ -13,7 +13,12 @@ void bubbleSort(vector<int>& arr) {
         {
             if (arr[j] > arr[j + 1])
             {
-                swap(arr[j], arr[j + 1]);
+                //swap処理での入れ替
+                //swap(arr[j], arr[j + 1]);
+                //手動処理での入れ替
+                int tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
             }
         }
         
