@@ -19,7 +19,6 @@ int main(){
     //建物全体を表す3次元配列作成
     vector<vector<vector<int>>> house(4, vector<vector<int>>(3, vector<int>(10, 0)));
     //建物の部屋の数を表す配列作成
-
     for (int i = 0; i < n; i++)
     {
         cin >> b >> f >> r >> v;
