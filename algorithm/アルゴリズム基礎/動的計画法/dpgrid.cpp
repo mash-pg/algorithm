@@ -83,26 +83,27 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 #endif // MY_TEMPLATE_HPP
 #define arrn(arr) (sizeof(arr) / sizeof(arr[0]))
 
+// 💬 問題文：
+// H×W のマス目があり、左上 (0, 0) から右下 (H-1, W-1) に向かって移動します。
+// 1回の移動で「右 または 下」に1マス移動できます。
+// 右下のマスにたどり着く通り数を mod 1000000007 で求めてください。
 
-int main(){
-    int n,W;
-    cin >> n >> W;
-    vl v(n),w(n);
-    vvl dp(n+1,vl(W+1,0));
 
-    rep(i,n){
-        cin >> v[i] >> w[i];
-    }
+const int MOD = 1000000007;
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j <= W; j++) {
-            dp[i+1][j] = dp[i][j];//使わない
-            if (j >= w[i]) {
-                dp[i+1][j] = max(dp[i+1][j], dp[i][j-w[i]] + v[i]);//使わない
-            }
+int main() {
+    int H,W;
+    cin >> H >> W;
+    vvl dp(H,vl(W,0));
+    dp[0][0] = 1;
+
+    for(int i=0; i < H;i++){
+        for(int j=0; j < W;j++){
+            if(i > 0) dp[i][j] = (dp[i][j] + dp[i-1][j]) % MOD;
+            if(j > 0) dp[i][j] = (dp[i][j] + dp[i][j-1]) % MOD;
         }
     }
 
-    cout << dp[n][W] << endl;
+    cout << dp[H -1][W - 1] << endl;
     return 0;
 }

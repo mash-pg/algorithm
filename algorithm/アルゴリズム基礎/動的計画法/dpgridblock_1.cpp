@@ -83,26 +83,51 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 #endif // MY_TEMPLATE_HPP
 #define arrn(arr) (sizeof(arr) / sizeof(arr[0]))
 
+// 💬 問題文：
+// H×W のマス目があり、左上 (0,0) から右下 (H-1,W-1) に移動します。
+// 1回で 右 または 下 に1マス進めます。
+// ただし、一部のマスには障害物（'#'）があって通れません。
+// 右下まで行く 通り数 を mod 1000000007 で求めてください。
+const int MOD = 1000000007;
 
-int main(){
-    int n,W;
-    cin >> n >> W;
-    vl v(n),w(n);
-    vvl dp(n+1,vl(W+1,0));
+int main() {
+    int H, W;
+    cin >> H >> W;
+    vvl dp(H, vl(W, 0));
+    vvchar from(H, vchar(W, '-'));  // 経路復元用
 
-    rep(i,n){
-        cin >> v[i] >> w[i];
-    }
+    dp[0][0] = 1;
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j <= W; j++) {
-            dp[i+1][j] = dp[i][j];//使わない
-            if (j >= w[i]) {
-                dp[i+1][j] = max(dp[i+1][j], dp[i][j-w[i]] + v[i]);//使わない
+    for (int i = 0; i < H; i++) {
+        for (int j = 0; j < W; j++) {
+            if (i > 0) {
+                dp[i][j] = (dp[i][j] + dp[i - 1][j]) % MOD;
+                if (from[i][j] == '-' || from[i][j] > 'D') from[i][j] = 'D';  // D = Down = 上から来た
+            }
+            if (j > 0) {
+                dp[i][j] = (dp[i][j] + dp[i][j - 1]) % MOD;
+                if (from[i][j] == '-' || from[i][j] > 'R') from[i][j] = 'R';  // R = 右から来た
             }
         }
     }
 
-    cout << dp[n][W] << endl;
+    // 経路復元
+    string path;
+    int i = H - 1, j = W - 1;
+    while (i != 0 || j != 0) {
+        if (from[i][j] == 'D') {
+            path += 'D';
+            i--;
+        } else {
+            path += 'R';
+            j--;
+        }
+    }
+
+    reverse(path.begin(), path.end());
+
+    cout << "通り数: " << dp[H - 1][W - 1] << endl;
+    cout << "経路: " << path << endl;
+
     return 0;
 }

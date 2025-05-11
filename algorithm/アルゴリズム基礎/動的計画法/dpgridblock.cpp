@@ -83,26 +83,50 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 #endif // MY_TEMPLATE_HPP
 #define arrn(arr) (sizeof(arr) / sizeof(arr[0]))
 
+// 💬 問題文：
+// H×W のマス目があり、左上 (0,0) から右下 (H-1,W-1) に移動します。
+// 1回で 右 または 下 に1マス進めます。
+// ただし、一部のマスには障害物（'#'）があって通れません。
+// 右下まで行く 通り数 を mod 1000000007 で求めてください。
 
-int main(){
-    int n,W;
-    cin >> n >> W;
-    vl v(n),w(n);
-    vvl dp(n+1,vl(W+1,0));
 
-    rep(i,n){
-        cin >> v[i] >> w[i];
+const int MOD = 1000000007;
+
+int main() {
+    int H,W;
+    cin >> H >> W;
+    vvs grid(H,vs(W));
+    //配列にデータを格納
+    rep(i,H){
+        string row;
+        cin >>row;
+        rep(j,W) {
+            grid[i][j] = row[j];
+        }
     }
+    //dp初期設定
+    vvl dp(H,vl(W,0));
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j <= W; j++) {
-            dp[i+1][j] = dp[i][j];//使わない
-            if (j >= w[i]) {
-                dp[i+1][j] = max(dp[i+1][j], dp[i][j-w[i]] + v[i]);//使わない
+    //スタート地点
+    if(grid[0][0] == ".") dp[0][0] = 1;
+
+    //縦と横のデータを処理していく
+    for(int i = 0; i< H;i++){
+        for(int j = 0; j < W;j++){
+            //行き止まりがあったらスキップ
+            if (grid[i][j] == "#") continue;
+            //iが0だと
+            if(i > 0){
+                dp[i][j] += dp[i - 1][j];
+                dp[i][j] %= MOD;  
+            }
+            if(j > 0){
+                dp[i][j] += dp[i][j - 1];
+                dp[i][j] %= MOD; 
             }
         }
     }
-
-    cout << dp[n][W] << endl;
+    //ゴールの地点を見つける
+    cout << dp[H - 1][W - 1] << endl;
     return 0;
 }
