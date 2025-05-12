@@ -84,10 +84,6 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 #define arrn(arr) (sizeof(arr) / sizeof(arr[0]))
 
 
-#include <iostream>
-#include <vector>
-using namespace std;
-
 class SegmentTree {
     public:
         int size;
@@ -139,21 +135,33 @@ class SegmentTree {
 };
 
 int main() {
-    int n = 8;
-    vector<long long> a = {5, 3, 7, 9, 6, 4, 1, 2};
-
+    int n , q;
+    //1行目
+    cin >> n >> q;
+    //2行目
+    vl a(n);
+    rep(i,n){
+        cin >> a[i];
+    }
     SegmentTree seg;
     seg.init(n);
     seg.build(a);
 
-    // クエリ：区間 [2, 6) の合計 → 7+9+6+4 = 26
-    cout << "sum[2, 6) = " << seg.query(2, 6) << endl;
-
-    // 更新：a[3] = 10（9 → 10）
-    seg.update(3, 10);
-
-    // 再クエリ：区間 [2, 6) の合計 → 7+10+6+4 = 27
-    cout << "sum[2, 6) = " << seg.query(2, 6) << endl;
-
+    for (int i = 0; i < q; i++)
+    {
+        int t;
+        cin >>t;
+        if(t == 1){
+            int x;
+            ll y;
+            cin >> x >> y;
+            seg.update(x,y);
+        }else if(t == 2){
+            int l,r;
+            cin >> l >> r;
+            cout << seg.query(l,r) << endl;
+        }
+    }
+    
     return 0;
 }
