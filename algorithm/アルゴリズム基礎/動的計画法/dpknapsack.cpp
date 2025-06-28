@@ -91,7 +91,7 @@ int main(){
     vvl dp(n+1,vl(W+1,0));
 
     rep(i,n){
-        cin >> v[i] >> w[i];
+        cin >> w[i] >> v[i];
     }
 
     for (int i = 0; i < n; i++) {
