@@ -75,7 +75,7 @@ using vmint = vc<mint>;
 using vvmint = vv<mint>;
 using vvvmint = vv<vmint>;
 
-// or 文の短縮
+// for 文の短縮
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define per(i, n) for (int i = (int)(n) - 1; i >= 0; i--)
 // C++20 以降で使えるラムダ関数版 rep
@@ -83,67 +83,38 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 #endif // MY_TEMPLATE_HPP
 #define arrn(arr) (sizeof(arr) / sizeof(arr[0]))
 
+// 💬 問題文：
+// H×W のマス目があり、左上 (0, 0) から右下 (H-1, W-1) に向かって移動します。
+// 1回の移動で「右 または 下」に1マス移動できます。
+// 右下のマスにたどり着く通り数を mod 1000000007 で求めてください。
+
+
 const int MOD = 1000000007;
-int main(){
-    /*
-    W:Width
-    H:High
-    R:Rihgt
-    D:Down
-    */
+
+int main() {
     int H,W;
     cin >> H >> W;
     vector<string> grid(H);
-    for(int i = 0; i< H;i++) cin >> grid[i];
-    
-    vvl dp(H,vl(W,0));
-    vvchar from(H,vchar(W,'-'));
-
-    if(grid[0][0] == '.') dp[0][0] = 1;
-
-    for(int i = 0; i < H;i++){
-        for (int j = 0; j < W; j++)
-        {
-            if(grid[i][j] == '#') continue;
-            if(i > 0 && grid[i - 1][j] == '.' && dp[i - 1][j] > 0) {
-                //列の上から下の順にdp配列に格納する
-                dp[i][j] = (dp[i][j] + dp[i - 1][j]) % MOD;
-                from[i][j] = 'D';
-            }
-            if(j > 0 && grid[i][j - 1] == '.' && dp[i][j - 1] > 0) {
-                //行の左から右の順にdp配列に格納する
-                dp[i][j] = (dp[i][j] + dp[i][j - 1]) % MOD;
-                //整合性を保つために辞書順にR優先にしている
-                if (from[i][j] == '-' || from[i][j] > 'R')
-                    from[i][j] = 'R';
-            }
-        }
+    rep(i,H) cin >> grid[i];
         
-    }
+    vvl dp(H,vl(W,0));
+    dp[0][0] = (grid[0][0] == '.' ? 1 : 0);
 
-    //復元フェーズ
-    string path;
-    int i = H - 1;
-    int j = W -1;
-    if(dp[i][j] == 0){
-        cout << "No path\n";
-        return 0;
-    }
-
-    while (i != 0 || j != 0) {
-        if (from[i][j] == 'D') {
-            path += 'D';
-            i--;
-        } else if (from[i][j] == 'R') {
-            path += 'R';
-            j--;
-        } else {
-            break;
+    for(int i=0; i < H;i++){
+        for(int j=0; j < W;j++){
+            if (grid[i][j] == '#') continue;
+            //if(i > 0) dp[i][j] = (dp[i][j] + dp[i-1][j]) % MOD;
+            if(i > 0) {
+                dp[i][j] += dp[i-1][j];
+                dp[i][j] %= MOD;
+            }
+            if(j > 0) {
+                dp[i][j] += dp[i][j-1];
+                dp[i][j] %= MOD;
+            }
         }
     }
-    reverse(path.begin(), path.end());
-    cout << "number of paths："<< dp[H-1][W-1] << endl;
-    cout << "Path：" << path << endl;
-    return 0;
 
+    cout << dp[H -1][W - 1] << endl;
+    return 0;
 }

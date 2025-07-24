@@ -75,7 +75,7 @@ using vmint = vc<mint>;
 using vvmint = vv<mint>;
 using vvvmint = vv<vmint>;
 
-// or 文の短縮
+// for 文の短縮
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 #define per(i, n) for (int i = (int)(n) - 1; i >= 0; i--)
 // C++20 以降で使えるラムダ関数版 rep
@@ -83,67 +83,68 @@ auto rep = [](int n, auto f) { for (int i = 0; i < n; i++) f(i); };
 #endif // MY_TEMPLATE_HPP
 #define arrn(arr) (sizeof(arr) / sizeof(arr[0]))
 
-const int MOD = 1000000007;
-int main(){
-    /*
-    W:Width
-    H:High
-    R:Rihgt
-    D:Down
-    */
-    int H,W;
-    cin >> H >> W;
-    vector<string> grid(H);
-    for(int i = 0; i< H;i++) cin >> grid[i];
-    
-    vvl dp(H,vl(W,0));
-    vvchar from(H,vchar(W,'-'));
 
-    if(grid[0][0] == '.') dp[0][0] = 1;
+class SegmentTree {
+    public:
+        int size;
+        vector<long long> tree;
 
-    for(int i = 0; i < H;i++){
-        for (int j = 0; j < W; j++)
-        {
-            if(grid[i][j] == '#') continue;
-            if(i > 0 && grid[i - 1][j] == '.' && dp[i - 1][j] > 0) {
-                //列の上から下の順にdp配列に格納する
-                dp[i][j] = (dp[i][j] + dp[i - 1][j]) % MOD;
-                from[i][j] = 'D';
+        // 初期化：最小の2のべき乗サイズに拡張
+        void init(int n) {
+            size = 1;
+            while (size < n) size *= 2;
+            tree.assign(2 * size, 0);  // 初期値0
+        }
+
+        // 配列 a で木を構築
+        void build(const vector<long long>& a) {
+            //（8 = 5,9 = 3,10 = 7,11 = 9,12 = 6,13 = 4,14 = 1,15 = 2）
+            for (int i = 0; i < a.size(); ++i) {
+                tree[size + i] = a[i];
             }
-            if(j > 0 && grid[i][j - 1] == '.' && dp[i][j - 1] > 0) {
-                //行の左から右の順にdp配列に格納する
-                dp[i][j] = (dp[i][j] + dp[i][j - 1]) % MOD;
-                //整合性を保つために辞書順にR優先にしている
-                if (from[i][j] == '-' || from[i][j] > 'R')
-                    from[i][j] = 'R';
+            //添え字（7,6,5,4,3,2,1） 
+            for (int i = size - 1; i >= 1; --i) {
+                tree[i] = max(tree[2 * i] , tree[2 * i + 1]);
             }
         }
-        
-    }
 
-    //復元フェーズ
-    string path;
-    int i = H - 1;
-    int j = W -1;
-    if(dp[i][j] == 0){
-        cout << "No path\n";
-        return 0;
-    }
-
-    while (i != 0 || j != 0) {
-        if (from[i][j] == 'D') {
-            path += 'D';
-            i--;
-        } else if (from[i][j] == 'R') {
-            path += 'R';
-            j--;
-        } else {
-            break;
+        // 区間（l , r）の最大を求める
+        long long segmax(int l, int r, int node, int node_l, int node_r){
+            if (r <= node_l || node_r <= l) return 0;  // 範囲外
+            if (l <= node_l && node_r <= r) return tree[node];  // 完全に内側
+            int mid = (node_l + node_r) / 2;
+            long long left = segmax(l, r, 2 * node, node_l, mid);
+            long long right = segmax(l, r, 2 * node + 1, mid, node_r);
+            return max(left,right);
         }
+        // 外部から呼ぶとき用
+        long long segmax(int l, int r) {
+            return segmax(l, r, 1, 0, size);
+        }
+};
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int n, q;
+    cin >> n >> q;
+
+    vector<long long> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    reverse(path.begin(), path.end());
-    cout << "number of paths："<< dp[H-1][W-1] << endl;
-    cout << "Path：" << path << endl;
+
+    SegmentTree seg;
+    seg.init(n);
+    seg.build(a);
+
+    for (int i = 0; i < q; i++) {
+        int l, r;
+        cin >> l >> r;
+        l--;  // 1-indexed → 0-indexed
+        cout << seg.segmax(l, r) << '\n';
+    }
+
+
     return 0;
-
 }
