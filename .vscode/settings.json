@@ -1,9 +1,9 @@
 {
     "files.associations": {
         "*.dbclient-js": "javascript",
+        "*.embeddedhtml": "html",
         "*.sqlbook": "sql",
         "*.ndjson": "jsonl",
-        "*.embeddedhtml": "html",
         "any": "cpp",
         "*.tcc": "cpp",
         "deque": "cpp",
@@ -98,7 +98,8 @@
         "syncstream": "cpp",
         "testcode2": "cpp",
         "queue": "cpp",
-        "all": "cpp"
+        "all": "cpp",
+        "stack": "cpp"
     },
     "cmake.sourceDirectory": "/home/mash/project/algorithm/ac-library/test/benchmark"
 }
