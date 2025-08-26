@@ -14,6 +14,7 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
 
     // マージ処理
     int i = 0, j = 0, k = left;
+    
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
             arr[k] = L[i];
@@ -37,6 +38,13 @@ void merge(std::vector<int>& arr, int left, int mid, int right) {
         k++;
     }
 }
+// 配列を表示するヘルパー関数
+void printArray(const std::vector<int>& arr) {
+    for (int x : arr) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+}
 
 // マージソートを実装した本体の関数
 void mergeSort(std::vector<int>& arr, int left, int right) {
@@ -52,16 +60,15 @@ void mergeSort(std::vector<int>& arr, int left, int right) {
     mergeSort(arr, mid + 1, right); // 右半分を再帰的にソート
 
     // 統合 (Combine)
-    merge(arr, left, mid, right);   // ソート済みの2つの半分をマージ
+    std::cout << "Merging [" << left << ".." << mid << "] and [" << mid + 1 << ".." << right << "]" << std::endl;
+    std::cout << "Before merge: ";
+    printArray(arr);
+    merge(arr, left, mid, right);   // ソート済みの2つの半分をマージ(結合するときも処理を行う)
+    std::cout << "After merge:  ";
+    printArray(arr);
+    std::cout << "----------------------------------------" << std::endl;
 }
 
-// 配列を表示するヘルパー関数
-void printArray(const std::vector<int>& arr) {
-    for (int x : arr) {
-        std::cout << x << " ";
-    }
-    std::cout << std::endl;
-}
 
 int main() {
     std::vector<int> arr = {12, 11, 13, 5, 6, 7, 2, 9};
